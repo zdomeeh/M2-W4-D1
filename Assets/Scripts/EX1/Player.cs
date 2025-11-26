@@ -1,4 +1,5 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -41,5 +42,16 @@ public class Player
     public bool IsVincitore()
     {
         return punteggio >= 100;
+    }
+
+    public void AttaccaNemico(Enemy nemico, int danno)
+    {
+        Debug.Log("Il giocatore " + nome + " attacca " + nemico.nome + " causando " + danno + " danni!!");
+        nemico.SubisciDanno(danno);
+
+        if (nemico.IsMorto())
+        {
+            Debug.Log("Il giocatore " + nome + " ha ucciso il nemico " + nemico.nome + "!");
+        }
     }
 }
